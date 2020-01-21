@@ -7,7 +7,7 @@ var product2 = document.getElementById('product2');
 var product3 = document.getElementById('product3');
 
 var votesCt = 0;
-var maxVotes = 25;
+var maxVotes = 10; //MAX VOTES
 
 var index1 = null;
 var index2 = null;
@@ -27,7 +27,7 @@ function Product(name, img) {
 Product.productArray = [];
 
 //get random productArray index
-function getRandomProduct() {
+function getRandomIndex() {
   var randomProduct = Math.floor(Math.random() * Product.productArray.length);
   return randomProduct;
 }
@@ -35,9 +35,9 @@ function getRandomProduct() {
 //render products
 function renderProducts() {
   do {
-    index1 = getRandomProduct();
-    index2 = getRandomProduct();
-    index3 = getRandomProduct();
+    index1 = getRandomIndex();
+    index2 = getRandomIndex();
+    index3 = getRandomIndex();
   } while(index1 === index2 || index1 === index3 || index2 === index3);
   
   //render product images
@@ -69,18 +69,20 @@ var handleClick = function(event) {
       Product.productArray[index3].clicks++;
       console.log('index3 clicked');
     }
-    
+    //remove event listener when max votes reached
     if(votesCt >= maxVotes) {
       productContainer.removeEventListener('click', handleClick);
       alert('Thank you for participating in our survey. Your check is in the mail.');
-  
+      //log results in console
       for(var i=0; i<Product.productArray.length; i++) {
         var printProduct = Product.productArray[i];
         console.log(`${printProduct.name} was selected ${printProduct.clicks} times with ${printProduct.views} views`);
       }
+    //rerender products if votes arent maxed
     } else {
       renderProducts();
     }
+  //failstate for misclick
   } else {
     console.log('clicked outside of product images');
   }
