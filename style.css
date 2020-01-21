@@ -23,3 +23,7 @@ img {
   width: 25%;
   box-shadow: 0 0 15px #999;
 }
+
+#products *:hover {
+  cursor: pointer;
+}

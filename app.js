@@ -7,7 +7,7 @@ var product2 = document.getElementById('product2');
 var product3 = document.getElementById('product3');
 
 var votesCt = 0;
-var maxVotes = 4;
+var maxVotes = 25;
 
 var index1 = null;
 var index2 = null;
@@ -69,19 +69,20 @@ var handleClick = function(event) {
       Product.productArray[index3].clicks++;
       console.log('index3 clicked');
     }
-  } else {
-    console.log('clicked outside of product images');
-  }
-  if(votesCt >= maxVotes) {
-    productContainer.removeEventListener('click', handleClick);
-    alert('Thank you for participating in our survey. Your check is in the mail.');
-
-    for(var i=0; i<Product.productArray.length; i++) {
-      var printProduct = Product.productArray[i];
-      console.log(`${printProduct.name} was selected ${printProduct.clicks} times with ${printProduct.views} views`);
+    
+    if(votesCt >= maxVotes) {
+      productContainer.removeEventListener('click', handleClick);
+      alert('Thank you for participating in our survey. Your check is in the mail.');
+  
+      for(var i=0; i<Product.productArray.length; i++) {
+        var printProduct = Product.productArray[i];
+        console.log(`${printProduct.name} was selected ${printProduct.clicks} times with ${printProduct.views} views`);
+      }
+    } else {
+      renderProducts();
     }
   } else {
-    renderProducts();
+    console.log('clicked outside of product images');
   }
 }
 
