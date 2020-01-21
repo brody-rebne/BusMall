@@ -1,0 +1,25 @@
+h1 {
+  margin: 50px auto;
+  border-bottom: 3px solid #33f;
+  width: min-content;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 48px;
+  color: #33f
+}
+
+h2 {
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 36px;
+}
+
+section {
+  width: 100%;
+}
+
+img {
+  display: inline-block;
+  margin-right: 15px;
+  width: 25%;
+  box-shadow: 0 0 15px #999;
+}
