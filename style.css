@@ -14,17 +14,38 @@ h2 {
 }
 
 section {
+  display: block;
   margin: auto;
-  width: 100%;
+  margin-top: 50px;
+  width: 80%;
 }
 
 img {
   display: inline-block;
-  margin-right: 15px;
-  width: 25%;
-  box-shadow: 0 0 15px #999;
+  width: 32%;
+  height: 150px;
 }
 
 #products *:hover {
+  cursor: pointer;
+  box-shadow: 0 0 15px #999;
+}
+
+button {
+  margin: 10px auto;
+  border: 5px solid #33f;
+  border-radius: 100000px;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #33f;
+}
+
+button:hover {
+  background-color: #33f;
+  color: #fff;
+  box-shadow: 0 0 15px #999;
   cursor: pointer;
 }
