@@ -28,9 +28,9 @@ function updateProducts() {
 
 //localStorage function to retrieve objects array. instantiates new objects if none exist
 function retrieveProducts() {
-  var storedProducts = localStorage.getItem('products');
-  var parsedProducts = JSON.parse(storedProducts);
-  if(parsedProducts.length > 0) {
+  if(localStorage.getItem('products')) {
+    var storedProducts = localStorage.getItem('products');
+    var parsedProducts = JSON.parse(storedProducts);
     Product.productArray = parsedProducts;
   } else {
     instantiateProducts();
@@ -119,6 +119,7 @@ function instantiateProducts() {
   new Product('USB', '/img/usb.gif');
   new Product('Water Can', '/img/water-can.jpg');
   new Product('Wine Glass', '/img/wine-glass.jpg');
+  updateProducts();
 }
 
 //event handler for product clicks
