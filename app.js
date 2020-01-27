@@ -8,17 +8,9 @@ var product3 = document.getElementById('product3');
 var retryButton = document.getElementById('retry');
 var resetButton = document.getElementById('reset');
 
+//survey options
 var renderedProducts = 3;
-var votesCt = 0;
-var maxVotes = 25; //MAX VOTES
-
-var index1 = null;
-var index2 = null;
-var index3 = null;
-
-var indexAttribute = document.createAttribute('index');
-
-randomIndices = [];
+var maxVotes = 25;
 
 //localStorage function to update objects array
 function updateProducts() {
@@ -97,7 +89,7 @@ function renderProducts() {
   updateProducts();
 }
 
-//instantiate objects
+//instantiate product objects
 function instantiateProducts() {
   new Product('Bag', '/img/bag.jpg');
   new Product('Banana', '/img/banana.jpg');
@@ -123,6 +115,8 @@ function instantiateProducts() {
 }
 
 //event handler for product clicks
+var votesCt = 0;
+
 var handleProductClick = function(event) {
   var clickedProduct = event.target;
   console.log(event.target.id);
@@ -143,7 +137,7 @@ var handleProductClick = function(event) {
     //remove event listener when max votes reached
     if(votesCt >= maxVotes) {
       productContainer.removeEventListener('click', handleProductClick);
-      //alert('Thank you for participating in our survey. Your check is in the mail.');
+      alert('Thank you for participating in our survey. Your check is in the mail.');
       //log results in console
       for(var i=0; i<Product.productArray.length; i++) {
         var printProduct = Product.productArray[i];
@@ -178,6 +172,7 @@ var handleResetClick = function() {
   handleRetryClick();
 }
 
+//rendering data chart with Chart JS
 var chartSection = document.getElementById('chartSection');
 var chart = document.createElement('canvas');
 chart.setAttribute('id', 'chart');
@@ -207,10 +202,6 @@ function renderChart() {
         label: 'Times Viewed',
         data: viewData,
         backgroundColor: 'Blue',
-      // }, {
-      //   label: 'Clicks/View',
-      //   data: perData,
-      //   backgroundColor: 'Purple',
       }]
     },
     options: {
@@ -226,6 +217,7 @@ function renderChart() {
   chartSection.appendChild(chart);
 }
 
+//undrenders chart (keeps Chart object/data)
 function unrenderChart() {
   chartSection.removeChild(chart);
 }
@@ -238,9 +230,3 @@ renderProducts();
 productContainer.addEventListener('click', handleProductClick);
 retryButton.addEventListener('click', handleRetryClick);
 resetButton.addEventListener('click', handleResetClick);
-
-
-
-//STRETCH GOALS
-//reduce if/else statements from event handler
-//recalculate indeces 1 by 1
