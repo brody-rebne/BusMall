@@ -91,26 +91,26 @@ function renderProducts() {
 
 //instantiate product objects
 function instantiateProducts() {
-  new Product('Bag', '/img/bag.jpg');
-  new Product('Banana', '/img/banana.jpg');
-  new Product('Bathroom', '/img/Bathroom.jpg');
-  new Product('Boots', '/img/boots.jpg');
-  new Product('Breakfast', '/img/breakfast.jpg');
-  new Product('Bubblegum', '/img/bubblegum.jpg');
-  new Product('Chair', '/img/chair.jpg');
-  new Product('Cthulhu', '/img/cthulhu.jpg');
-  new Product('Dog Duck', '/img/dog-duck.jpg');
-  new Product('Dragon', '/img/dragon.jpg');
-  new Product('Pen', '/img/pen.jpg');
-  new Product('Pet Sweep', '/img/pet-sweep.jpg');
-  new Product('Scissors', '/img/scissors.jpg');
-  new Product('Shark', '/img/shark.jpg');
-  new Product('Sweep', '/img/sweep.png');
-  new Product('Tauntaun', '/img/tauntaun.jpg');
-  new Product('Unicorn', '/img/unicorn.jpg');
-  new Product('USB', '/img/usb.gif');
-  new Product('Water Can', '/img/water-can.jpg');
-  new Product('Wine Glass', '/img/wine-glass.jpg');
+  new Product('Bag', '../img/bag.jpg');
+  new Product('Banana', '../img/banana.jpg');
+  new Product('Bathroom', '../img/Bathroom.jpg');
+  new Product('Boots', '../img/boots.jpg');
+  new Product('Breakfast', '../img/breakfast.jpg');
+  new Product('Bubblegum', '../img/bubblegum.jpg');
+  new Product('Chair', '../img/chair.jpg');
+  new Product('Cthulhu', '../img/cthulhu.jpg');
+  new Product('Dog Duck', '../img/dog-duck.jpg');
+  new Product('Dragon', '../img/dragon.jpg');
+  new Product('Pen', '../img/pen.jpg');
+  new Product('Pet Sweep', '../img/pet-sweep.jpg');
+  new Product('Scissors', '../img/scissors.jpg');
+  new Product('Shark', '../img/shark.jpg');
+  new Product('Sweep', '../img/sweep.png');
+  new Product('Tauntaun', '../img/tauntaun.jpg');
+  new Product('Unicorn', '../img/unicorn.jpg');
+  new Product('USB', '../img/usb.gif');
+  new Product('Water Can', '../img/water-can.jpg');
+  new Product('Wine Glass', '../img/wine-glass.jpg');
   updateProducts();
 }
 
@@ -219,7 +219,9 @@ function renderChart() {
 
 //undrenders chart (keeps Chart object/data)
 function unrenderChart() {
-  chartSection.removeChild(chart);
+  if (chartSection.firstChild) {
+    chartSection.removeChild(chart);
+  }
 }
 
 //render products
