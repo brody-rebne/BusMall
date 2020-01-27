@@ -3,7 +3,7 @@ h1 {
   border-bottom: 3px solid #33f;
   width: min-content;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 48px;
+  font-size: 64px;
   color: #33f
 }
 
@@ -23,7 +23,7 @@ section {
 img {
   display: inline-block;
   width: 32%;
-  height: 150px;
+  height: 26vw;
 }
 
 #products *:hover {
